@@ -1,0 +1,17 @@
+[GOAL]
+- framework capable to address all the needs: from data sourcing, data cleaning, processing to model deployment and prediction
+- Service function chaining for ML models: (whethere user-wise or programmer-wise (collecting, processing data, training, evaluating model))
+
+[STATE OF THE ART]
+DataIco : democratizing ML
+
+[FEATURES]
+- each task in a microservice:
+
+[WORKFLOW]
+- start a beta version:
+  - first step (week 1):
+    - create a first continerized network (input-output) for a ML model
+
+  - other:
+    - Think about the features that we want to add to our beta version
