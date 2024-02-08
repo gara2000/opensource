@@ -1,0 +1,6 @@
+[TO DO]
+- Let the controller be a virtual machine, that can be created with vagrant, this virtual machine will get the requests from the user and crates the docker containers that execute a specific function (e.g run the model)
+- This virtual machine will be provisioned using ansible
+
+[PRORESS]
+- create the controller virtual machine with vagrant

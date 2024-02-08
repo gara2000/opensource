@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  model: 
+    container_name: model
+    image: mlops/model:1.0
+    build:
+      context: ./model
+      dockerfile: Dockerfile
+    networks:
+      model_network:
+
+networks:
+  model_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.0.0.0/24

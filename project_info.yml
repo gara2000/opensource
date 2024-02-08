@@ -1,4 +1,4 @@
-[GOAL]
+[GOALS]
 - framework capable to address all the needs: from data sourcing, data cleaning, processing to model deployment and prediction
 - Service function chaining for ML models: (whethere user-wise or programmer-wise (collecting, processing data, training, evaluating model))
 
