@@ -1,0 +1,59 @@
+http:
+  port: 8080
+  host: 0.0.0.0
+
+admin:
+  port: 9876
+  host: 172.0.0.3
+
+apiEndpoints:
+  processing:
+    host: 172.0.0.3
+    paths: '/api/processing/*'
+
+  training:
+    host: 172.0.0.3
+    paths: '/api/training/*'
+
+serviceEndpoints:
+  processing_service:
+    url: 'http://172.1.0.3:3000'
+  training_service:
+    url: 'http://172.1.0.4:3001'
+
+policies:
+  - basic-auth
+  - cors
+  - expression
+  - key-auth
+  - log
+  - oauth2
+  - proxy
+  - rate-limit
+
+pipelines:
+  processing_pipeline:
+    apiEndpoints:
+      - processing 
+    policies:
+      - cors:
+          - action:
+              origin: "*"
+              methods: "GET,HEAD,PUT,PATCH,POST,DELETE"
+      - proxy:
+          - action:
+              serviceEndpoint: processing_service
+              changeOrigin: true
+
+  training_pipeline:
+    apiEndpoints:
+      - training
+    policies:
+      - cors:
+          - action:
+              origin: "*"
+              methods: "GET,HEAD,PUT,PATCH,POST,DELETE"
+      - proxy:
+          - action:
+              serviceEndpoint: training_service
+              changeOrigin: true

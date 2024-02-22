@@ -1,19 +1,68 @@
 version: "3"
 
 services:
-  model: 
-    container_name: model
-    image: mlops/model:1.0
+  frontend: 
+    container_name: frontend
+    image: mlops/frontend:1.0
     build:
-      context: ./model
+      context: ./frontend
       dockerfile: Dockerfile
     networks:
-      model_network:
+      main_network:
+        ipv4_address: 172.0.0.2
+    ports:
+      - 4200:4200
+
+  api_gateway: 
+    container_name: api_gateway
+    image: mlops/api_gateway:1.0
+    build:
+      context: ./backend/api_gateway
+      dockerfile: Dockerfile
+    networks:
+      main_network:
+        ipv4_address: 172.0.0.3
+      backend_network:
+        ipv4_address: 172.1.0.2
+    ports:
+      - 8080:8080
+
+  processing_service: 
+    container_name: processing
+    image: mlops/processing:1.0
+    build:
+      context: ./backend/processing
+      dockerfile: Dockerfile
+    networks:
+      backend_network:
+        ipv4_address: 172.1.0.3
+    ports:
+      - 3000:3000
+
+  training_service: 
+    container_name: training
+    image: mlops/training:1.0
+    build:
+      context: ./backend/training
+      dockerfile: Dockerfile
+    networks:
+      backend_network:
+        ipv4_address: 172.1.0.4
+    ports:
+      - 3001:3001
 
 networks:
-  model_network:
+  main_network:
     driver: bridge
     ipam:
       driver: default
       config:
         - subnet: 172.0.0.0/24
+
+  backend_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.1.0.0/24
+
