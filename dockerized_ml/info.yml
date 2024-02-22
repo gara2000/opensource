@@ -2,5 +2,12 @@
 - Let the controller be a virtual machine, that can be created with vagrant, this virtual machine will get the requests from the user and crates the docker containers that execute a specific function (e.g run the model)
 - This virtual machine will be provisioned using ansible
 
-[PRORESS]
-- create the controller virtual machine with vagrant
+[PROGRESS]
+# - create the controller virtual machine with vagrant
+- Created the Architecture: 
+  - frontend: angular app 
+  - backend: api gateway and multiple microservices 
+* Create the frontend UI:
+  * first step: user should be able to upload data file and send it to the processing backend service
+* Make post requests from the frontend to the backend:
+* Implement the processing function in the processing microservice:
