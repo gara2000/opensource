@@ -23,7 +23,11 @@
 
     Visit http://172.0.0.2:2400 to access the user interface, in which the user can upload the data
 
-    The data uploaded by the user will be posted to the processing api
+    The data uploaded by the user will be posted to the processing api (at backend/processing/main.py in the upload_file function)
+
+    In the upload_file function, the fileContent.content contains the csv data 
+    
+
 
 5. Stop the containers:
     ```bash
