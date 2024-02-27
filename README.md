@@ -22,6 +22,7 @@
 4. Access the user interface:
 
     Visit http://172.0.0.2:2400 to access the user interface, in which the user can upload the data
+
     The data uploaded by the user will be posted to the processing api
 
 5. Stop the containers:
