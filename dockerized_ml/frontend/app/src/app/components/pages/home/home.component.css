@@ -1,0 +1,22 @@
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home .new-job {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #427D9D;
+    color: #eee;
+    font-weight: bold;
+    padding: 2rem;
+    border-radius: 0.4rem;
+}
+
+.home .new-job i{
+    padding-right: 1rem; 
+    font-size: 40px;
+}
