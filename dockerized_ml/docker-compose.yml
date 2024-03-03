@@ -51,6 +51,18 @@ services:
     # ports:
     #   - 3001:3001
 
+  database:
+    container_name: database
+    image: mlops/database:1.0
+    build:
+      context: ./database
+      dockerfile: Dockerfile
+    networks:
+      backend_network:
+        ipv4_address: 172.1.0.5
+    volumes:
+      - ./database/data:/data/db
+
 networks:
   main_network:
     driver: bridge

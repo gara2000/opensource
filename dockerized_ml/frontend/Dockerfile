@@ -4,6 +4,7 @@ COPY app /usr/src/app
 WORKDIR /usr/src/app
 
 RUN npm install -g @angular/cli
+RUN npm update
 RUN npm install
 
 COPY entry_point.sh /usr/local/bin/entry_point.sh

@@ -3,4 +3,4 @@
 DIRNAME=$(dirname $0)
 cd $DIRNAME
 
-docker-compose build
+docker-compose build 
