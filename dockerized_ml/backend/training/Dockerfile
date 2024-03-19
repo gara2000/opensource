@@ -1,11 +1,9 @@
 FROM python:3
 
 WORKDIR /usr/src/app
-
-RUN pip install fastapi uvicorn
-RUN pip install python-multipart
-
 COPY . .
+
+RUN pip install -r requirements.txt
 
 RUN chmod +x entry_point.sh
 

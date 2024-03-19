@@ -3,7 +3,7 @@
 DIRNAME=$(dirname $0)
 cd $DIRNAME
 
-./stop.sh
+docker-compose down
 
 images=$(docker images | grep mlops | awk -F ' ' '{print $1":"$2}')
 echo "Warning! This will remove the following images"

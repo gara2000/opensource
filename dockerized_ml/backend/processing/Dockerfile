@@ -1,13 +1,9 @@
 FROM python:3
 
 WORKDIR /usr/src/app
-
-RUN pip install fastapi uvicorn
-RUN pip install python-multipart
-RUN pip install pandas
-RUN pip install pymongo
-
 COPY . .
+
+RUN pip install -r requirements.txt
 
 RUN chmod +x entry_point.sh
 
